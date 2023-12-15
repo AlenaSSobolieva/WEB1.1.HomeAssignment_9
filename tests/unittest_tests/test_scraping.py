@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, Mock
 from io import StringIO
+from mongoengine import connect, disconnect
 from scraping import Author, Quote, get_quotes_and_authors, upload_to_mongodb, get_author_info
 
 class TestScraping(unittest.TestCase):

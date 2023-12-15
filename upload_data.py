@@ -3,9 +3,9 @@
 import json
 from mongoengine import connect
 from pymongo import MongoClient
-from main import Author, Quote
+from classes import Author, Quote
 
-def main():
+def main_upload():
     connection_string = 'mongodb+srv://soboleva13as:5413034002246@cluster0.xpt2wff.mongodb.net/web8'
 
     # Check the connection using pymongo
@@ -45,4 +45,4 @@ def main():
         quote.save()
 
 if __name__ == '__main__':
-    main()
+    main_upload()

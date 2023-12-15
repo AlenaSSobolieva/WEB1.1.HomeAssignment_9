@@ -14,7 +14,7 @@ class Quote(Document):
     author = ReferenceField(Author, reverse_delete_rule=True)
     quote = StringField()
 
-def main():
+def main_classes():
     base_url = 'http://quotes.toscrape.com'
     all_quotes, all_authors = get_quotes_and_authors(base_url)
 
@@ -27,4 +27,4 @@ def main():
     upload_to_mongodb(all_quotes, all_authors)
 
 if __name__ == '__main__':
-    main()
+    main_classes()

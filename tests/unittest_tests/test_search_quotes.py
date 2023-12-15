@@ -3,7 +3,7 @@ import json
 from io import StringIO
 from unittest.mock import patch
 from mongoengine import connect, disconnect
-from main import Author, Quote
+from classes import Author, Quote
 import search_quotes
 
 class TestSearchQuotes(unittest.TestCase):
@@ -52,7 +52,7 @@ class TestSearchQuotes(unittest.TestCase):
     @patch('builtins.input', side_effect=['name:Albert Einstein', 'exit'])
     def test_search_by_name(self, mock_input):
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            search_quotes.main()
+            search_quotes.main_search()
             output = mock_stdout.getvalue()
             self.assertIn("Albert Einstein:", output)
             self.assertIn("The world as we have created it is a process of our thinking.", output)
@@ -60,10 +60,10 @@ class TestSearchQuotes(unittest.TestCase):
     @patch('builtins.input', side_effect=['tag:change', 'exit'])
     def test_search_by_tag(self, mock_input):
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            search_quotes.main()
+            search_quotes.main_search()
             output = mock_stdout.getvalue()
             self.assertIn("Albert Einstein:", output)
             self.assertIn("The world as we have created it is a process of our thinking.", output)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main_search()

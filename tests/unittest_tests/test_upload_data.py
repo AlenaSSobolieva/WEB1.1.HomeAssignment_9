@@ -2,8 +2,8 @@ import unittest
 from mongoengine import connect
 from unittest.mock import patch
 from io import StringIO
-from main import Author, Quote
-from upload_data import main
+from classes import Author, Quote
+from upload_data import main_upload
 
 class TestUploadData(unittest.TestCase):
 
@@ -29,7 +29,7 @@ class TestUploadData(unittest.TestCase):
 
         with patch('builtins.input', return_value=connection_string):
             with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-                main()
+                main_upload()
 
                 output = mock_stdout.getvalue()
                 self.assertIn("Pinged MongoDB using pymongo. Connection successful!", output)
@@ -56,4 +56,4 @@ class TestUploadData(unittest.TestCase):
                 self.assertIsNotNone(quote4)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main_upload()

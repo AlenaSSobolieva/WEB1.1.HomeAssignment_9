@@ -1,10 +1,10 @@
 # search_quotes.py
 
 from mongoengine import connect
-from main import Quote, Author
+from classes import Quote, Author
 from pymongo import MongoClient
 
-def main():
+def main_search():
     connection_string = 'mongodb+srv://soboleva13as:5413034002246@cluster0.xpt2wff.mongodb.net/web8'
 
     # Check the connection using pymongo
@@ -48,4 +48,4 @@ def main():
     print("Script execution ended.")
 
 if __name__ == "__main__":
-    main()
+    main_search()

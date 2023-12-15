@@ -1,6 +1,6 @@
 import unittest
 from mongoengine import connect
-from main import Author, Quote
+from classes import Author, Quote
 
 class TestMainScript(unittest.TestCase):
 
